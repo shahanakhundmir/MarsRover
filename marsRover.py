@@ -21,4 +21,31 @@ planning :
 
 
 def marsRoverChallenge():
+
+    # take input from user or test file
+    # first line will be plateau size
+    # rover challenge will be in sets of 2 lines
+    # first line is start point 
+    # second line is movements    
+    # check for next rover
+
+
+    # hard code input for plateau
+    p= (5,5)
+    rover1 = {'x':1, 'y': 2, 'direction' : 'N'}
+
+    
+    # input for rover position
+    # set the rovers position
+    # check that this is within the plateau
+    
+    # get input of movements
+    # apply movements to rover
+    # return final position
+
     return
+
+# if the defined plateau is 0,0 should throw an error
+def isPlateauValid(plateau):
+    return plateau != (0,0)
+
