@@ -1,12 +1,6 @@
 '''
 edge cases : 
-            * collision
-            * going beyound the plateau
-            * plateau of 0,0 given - non existent
-            * check start position is in plateau
-            * check initital compass direction is N S E W
-            * check that input is L R M 
-            * What maximum number of rovers deployed at any one time
+            
 
 
 planning : 
@@ -20,68 +14,63 @@ planning :
 '''
 
 
-def marsRoverChallenge():
+def marsRoverChallenge(plateau, rover, movements):
 
-    # hard code input for plateau
-    p= (5,5)
-    rover1 = {'x':1, 'y': 2, 'direction' : 'N'}
+    if isPlateauValid(plateau) and isRoverOnPlateau(plateau, rover) and isDirectionValid(rover):
+        for move in movements:
+            if move == "R" or move == "L":
+                changeRoverDirection(rover, move)
+            elif move == "M":
+                moveRoverForward(rover)
+            else:
+                print("Error")
+        # check rover is on plateu
+        # check rover hasn't collided  
+    return rover
 
 
-    # take input from user or test file
-    # first line will be plateau size
-    # rover challenge will be in sets of 2 lines
-    # first line is start point 
-    # second line is movements    
-    # check for next rover
-
-
-    # input for rover position
-    # set the rovers position
-    # check that this is within the plateau
-    
-    # get input of movements
-    # apply movements to rover
-    # return final position
-
-    return
-
-# if the defined plateau is 0,0 should throw an error
 def isPlateauValid(plateau):
     return plateau != (0,0)
 
 
-# if the rover starts from or moves to a position outside the plateau, error
 def isRoverOnPlateau(plateau, rover):
     return plateau[0]>=rover.get('x') and plateau[1]>=rover.get('y')
    
 
-# check if rover's initial direction is a valid compass value
 def isDirectionValid(rover):
     return rover.get('direction') == 'N' or rover.get('direction') == 'E' or rover.get('direction') == 'S' or rover.get('direction') == 'W'
 
 
-# change the rovers compass direction based upon an input
 def changeRoverDirection(rover, newDirection):
-    
     if newDirection == 'R':
-        if rover.get('direction') == 'N': rover['direction'] = 'E'
-        elif rover.get('direction') == 'E': rover['direction'] = 'S'
-        elif rover.get('direction') == 'S': rover['direction'] = 'W'
-        elif rover.get('direction') == 'W': rover['direction'] = 'N'
+        if rover.get('direction') == 'N': 
+            rover['direction'] = 'E'
+        elif rover.get('direction') == 'E': 
+            rover['direction'] = 'S'
+        elif rover.get('direction') == 'S': 
+            rover['direction'] = 'W'
+        elif rover.get('direction') == 'W': 
+            rover['direction'] = 'N'
 
     elif newDirection == 'L':
-        if rover.get('direction') == 'N': rover['direction'] = 'W'
-        elif rover.get('direction') == 'E': rover['direction'] = 'N'
-        elif rover.get('direction') == 'S': rover['direction'] = 'E'
-        elif rover.get('direction') == 'W': rover['direction'] = 'S'
-
+        if rover.get('direction') == 'N': 
+            rover['direction'] = 'W'
+        elif rover.get('direction') == 'E': 
+            rover['direction'] = 'N'
+        elif rover.get('direction') == 'S': 
+            rover['direction'] = 'E'
+        elif rover.get('direction') == 'W': 
+            rover['direction'] = 'S'
     return rover
 
-# move the mars Rover forward in the direction that it is facing
-def moveRoverForward(rover):
-    if rover.get('direction') == 'N':  rover['y'] = rover.get('y') + 1
-    elif rover.get('direction') == 'S': rover['y'] = rover.get('y') - 1
-    elif rover.get('direction') == 'E': rover['x'] = rover.get('x') + 1
-    elif rover.get('direction') == 'W': rover['x'] = rover.get('x') -1
 
+def moveRoverForward(rover):
+    if rover.get('direction') == 'N':
+        rover['y'] = rover.get('y') + 1
+    elif rover.get('direction') == 'S': 
+        rover['y'] = rover.get('y') - 1
+    elif rover.get('direction') == 'E': 
+        rover['x'] = rover.get('x') + 1
+    elif rover.get('direction') == 'W': 
+        rover['x'] = rover.get('x') -1
     return rover
