@@ -34,7 +34,6 @@ def marsRoverChallenge():
     p= (5,5)
     rover1 = {'x':1, 'y': 2, 'direction' : 'N'}
 
-    
     # input for rover position
     # set the rovers position
     # check that this is within the plateau
@@ -49,3 +48,12 @@ def marsRoverChallenge():
 def isPlateauValid(plateau):
     return plateau != (0,0)
 
+# if the rover starts from or moves to a position outside the plateau, error
+def isRoverWithinPlateau(plateau, rover):
+    return plateau[0]>=rover.get('x') and plateau[1]>=rover.get('y')
+   
+
+
+
+def roverFinalPosition(rover):
+    return rover
