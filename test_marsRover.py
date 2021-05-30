@@ -13,12 +13,20 @@ def test_checkRover__direction_isValid():
     assert marsRover.isDirectionValid({'x':6, 'y': 2, 'direction' : 'E'}) == True
     assert marsRover.isDirectionValid({'x':6, 'y': 2, 'direction' : 'P'}) == False
     
-def test_rover__direction_changeRight():
+def test_rover_direction_changeRight():
     assert marsRover.changeRoverDirection({'x':6, 'y': 2, 'direction' : 'N'}, 'R') == {'x':6, 'y': 2, 'direction' : 'E'}
     assert marsRover.changeRoverDirection({'x':6, 'y': 2, 'direction' : 'E'}, 'R') == {'x':6, 'y': 2, 'direction' : 'S'}
 
-def test_rover__direction_changeLeft():
+def test_rover_direction_changeLeft():
     assert marsRover.changeRoverDirection({'x':6, 'y': 2, 'direction' : 'N'}, 'L') == {'x':6, 'y': 2, 'direction' : 'W'}
     assert marsRover.changeRoverDirection({'x':6, 'y': 2, 'direction' : 'E'}, 'L') == {'x':6, 'y': 2, 'direction' : 'N'}
+
+def test_rover_moveForward_newPosition():
+    assert marsRover.moveRoverForward({'x':6, 'y': 2, 'direction' : 'N'}) == {'x':6, 'y': 3, 'direction' : 'N'}
+    assert marsRover.moveRoverForward({'x':6, 'y': 2, 'direction' : 'S'}) == {'x':6, 'y': 1, 'direction' : 'S'} 
+    assert marsRover.moveRoverForward({'x':6, 'y': 2, 'direction' : 'E'}) == {'x':7, 'y': 2, 'direction' : 'E'}
+    assert marsRover.moveRoverForward({'x':6, 'y': 2, 'direction' : 'W'}) == {'x':5, 'y': 2, 'direction' : 'W'} 
+ 
+ 
 
 

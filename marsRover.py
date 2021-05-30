@@ -22,6 +22,11 @@ planning :
 
 def marsRoverChallenge():
 
+    # hard code input for plateau
+    p= (5,5)
+    rover1 = {'x':1, 'y': 2, 'direction' : 'N'}
+
+
     # take input from user or test file
     # first line will be plateau size
     # rover challenge will be in sets of 2 lines
@@ -29,10 +34,6 @@ def marsRoverChallenge():
     # second line is movements    
     # check for next rover
 
-
-    # hard code input for plateau
-    p= (5,5)
-    rover1 = {'x':1, 'y': 2, 'direction' : 'N'}
 
     # input for rover position
     # set the rovers position
@@ -76,7 +77,11 @@ def changeRoverDirection(rover, newDirection):
 
     return rover
 
-
-
+# move the mars Rover forward in the direction that it is facing
 def moveRoverForward(rover):
+    if rover.get('direction') == 'N':  rover['y'] = rover.get('y') + 1
+    elif rover.get('direction') == 'S': rover['y'] = rover.get('y') - 1
+    elif rover.get('direction') == 'E': rover['x'] = rover.get('x') + 1
+    elif rover.get('direction') == 'W': rover['x'] = rover.get('x') -1
+
     return rover
