@@ -48,14 +48,35 @@ def marsRoverChallenge():
 def isPlateauValid(plateau):
     return plateau != (0,0)
 
+
 # if the rover starts from or moves to a position outside the plateau, error
 def isRoverOnPlateau(plateau, rover):
     return plateau[0]>=rover.get('x') and plateau[1]>=rover.get('y')
    
+
+# check if rover's initial direction is a valid compass value
 def isDirectionValid(rover):
     return rover.get('direction') == 'N' or rover.get('direction') == 'E' or rover.get('direction') == 'S' or rover.get('direction') == 'W'
 
 
+# change the rovers compass direction based upon an input
+def changeRoverDirection(rover, newDirection):
+    
+    if newDirection == 'R':
+        if rover.get('direction') == 'N': rover['direction'] = 'E'
+        elif rover.get('direction') == 'E': rover['direction'] = 'S'
+        elif rover.get('direction') == 'S': rover['direction'] = 'W'
+        elif rover.get('direction') == 'W': rover['direction'] = 'N'
 
-def roverFinalPosition(rover):
+    elif newDirection == 'L':
+        if rover.get('direction') == 'N': rover['direction'] = 'W'
+        elif rover.get('direction') == 'E': rover['direction'] = 'N'
+        elif rover.get('direction') == 'S': rover['direction'] = 'E'
+        elif rover.get('direction') == 'W': rover['direction'] = 'S'
+
+    return rover
+
+
+
+def moveRoverForward(rover):
     return rover
