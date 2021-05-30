@@ -29,5 +29,6 @@ def test_rover_moveForward_newPosition():
  
 
 def test_rover_seriesOfMoves_newPosition():
-    assert marsRover.marsRoverChallenge((5,5),{'x':1, 'y': 2, 'direction' : 'N'},"LMLMLMLMM"  ) == {'x':1, 'y': 3, 'direction' : 'N'}
-    assert marsRover.marsRoverChallenge((5,5),{'x':3, 'y': 3, 'direction' : 'E'},"MMRMMRMRRM"  ) == {'x':5, 'y': 1, 'direction' : 'E'}
+    #assert marsRover.marsRoverChallenge((5,5),{'x':1, 'y': 2, 'direction' : 'N'},"LMLMLMLMM"  ) == {'x':1, 'y': 3, 'direction' : 'N'}
+    #assert marsRover.marsRoverChallenge((5,5),{'x':3, 'y': 3, 'direction' : 'E'},"MMRMMRMRRM"  ) == {'x':5, 'y': 1, 'direction' : 'E'}
+    assert marsRover.marsRoverChallenge((5,5),[({'x':1, 'y': 2, 'direction' : 'N'},"LMLMLMLMM"), ({'x':3, 'y': 3, 'direction' : 'E'},"MMRMMRMRRM")]) == [{'x':1, 'y': 3, 'direction' : 'N'}, {'x':5, 'y': 1, 'direction' : 'E'}]

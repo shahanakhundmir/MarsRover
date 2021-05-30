@@ -1,32 +1,30 @@
-'''
-edge cases : 
-            
+def marsRoverChallenge(plateau, roverMovements ):
+    arr = []
+    for roverMovement in roverMovements:
+        rover = roverMovement[0]
+        movements = roverMovement[1]
+    # refactor to list of rovers, 3
+    # get the plateau
+    #loop through the rovers
+    #store endpoint of each rover journey in list 
+    #with each rover move, check it hasn't collided with another rover
 
+        if isPlateauValid(plateau) and isRoverOnPlateau(plateau, rover) and isDirectionValid(rover):
+            for move in movements:
+                if move == "R" or move == "L":
+                    changeRoverDirection(rover, move)
+                elif move == "M":
+                    moveRoverForward(rover)
+                    if isRoverOnPlateau(plateau, rover):
+                        continue
+                    else:
+                      print("Rover is no longer on the plateau")
+                else:
+                 print("Error")
 
-planning : 
-            * first line defines plateau, after that several rovers can be 
-            delopyed, so every 2 lines represents a rover
-            * What type of error messages should be give
-            * Each rover is a dictinary object
-            * multiple rovers can be appended to a list which maintains the 
-            position of each rover on the plateau, incase of collision
-
-'''
-
-
-def marsRoverChallenge(plateau, rover, movements):
-
-    if isPlateauValid(plateau) and isRoverOnPlateau(plateau, rover) and isDirectionValid(rover):
-        for move in movements:
-            if move == "R" or move == "L":
-                changeRoverDirection(rover, move)
-            elif move == "M":
-                moveRoverForward(rover)
-            else:
-                print("Error")
-        # check rover is on plateu
-        # check rover hasn't collided  
-    return rover
+        # check rover hasn't collided  --- report collision
+        arr.append(rover)
+    return arr
 
 
 def isPlateauValid(plateau):
@@ -34,7 +32,7 @@ def isPlateauValid(plateau):
 
 
 def isRoverOnPlateau(plateau, rover):
-    return plateau[0]>=rover.get('x') and plateau[1]>=rover.get('y')
+    return plateau[0] >= rover.get('x') and rover.get('x') >= 0 and plateau[1] >= rover.get('y') and rover.get('y') >= 0
    
 
 def isDirectionValid(rover):
