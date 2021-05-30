@@ -49,9 +49,11 @@ def isPlateauValid(plateau):
     return plateau != (0,0)
 
 # if the rover starts from or moves to a position outside the plateau, error
-def isRoverWithinPlateau(plateau, rover):
+def isRoverOnPlateau(plateau, rover):
     return plateau[0]>=rover.get('x') and plateau[1]>=rover.get('y')
    
+def isDirectionValid(rover):
+    return rover.get('direction') == 'N' or rover.get('direction') == 'E' or rover.get('direction') == 'S' or rover.get('direction') == 'W'
 
 
 
