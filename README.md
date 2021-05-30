@@ -7,5 +7,8 @@ If initial plateau coordinates are (0,0) thrown an error
 Check initital compass direction is N, S, E or W
 Check that move is L, R or M 
 Maximum number of rovers deployed at any one time is 3
+Report collision if moving rover has the same coordinates as any other rover
+Provide relevant error messages for:
+  collision
+  rover going beyound the plateau
 
-If there are multiple rovers on a plateau, the position of each must be maintained to ensure no collisions occur
