@@ -1,9 +1,10 @@
-def marsRoverChallenge(plateau, roverMovements ):
-    arr = []
-    for roverMovement in roverMovements:
-        rover = roverMovement[0]
-        movements = roverMovement[1]
+def marsRoverChallenge(plateau, roverMissions ):
     
+    completedMissions = []
+    error = 0
+    for roverMission in roverMissions:
+        rover = roverMission[0]
+        movements = roverMission[1]
         if isPlateauValid(plateau) and isRoverOnPlateau(plateau, rover) and isDirectionValid(rover):
             for move in movements:
                 if move == "R" or move == "L":
@@ -11,13 +12,22 @@ def marsRoverChallenge(plateau, roverMovements ):
                 elif move == "M":
                     moveRoverForward(rover)
                     if not isRoverOnPlateau(plateau, rover):
-                      print("Rover is no longer on the plateau")
-                    if collisionHasOccured(arr, rover):
-                        print("collision has occured")
+                        completedMissions.append("Mission Aborted - Rover is no longer on the plateau")
+                        error = 1
+                        break
+                    if collisionHasOccured(completedMissions, rover):
+                        completedMissions.append("Mission Aborted - Collision has occured")
+                        error = 1
+                        break
                 else:
-                    print("Invalid move")
-        arr.append(rover)
-    return arr
+                    completedMissions.append("Mission Aborted - Invalid move")
+                    error = 1
+                    break
+        # only capture the rovers mission if it has been successful
+        if error == 0:     
+            completedMissions.append(rover)
+    return completedMissions
+
 
 
 def isPlateauValid(plateau):
@@ -67,7 +77,7 @@ def moveRoverForward(rover):
     return rover
 
 
-def collisionHasOccured(completedRovers, rover):
-    for completedRover in completedRovers:
-        if completedRover.get('x') == rover.get('x') and completedRover.get('y') == rover.get('y'):
+def collisionHasOccured(completedMissions, rover):
+    for completedMission in completedMissions:
+        if completedMission.get('x') == rover.get('x') and completedMission.get('y') == rover.get('y'):
             return True

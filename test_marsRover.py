@@ -26,9 +26,20 @@ def test_rover_moveForward_newPosition():
     assert marsRover.moveRoverForward({'x':6, 'y': 2, 'direction' : 'S'}) == {'x':6, 'y': 1, 'direction' : 'S'} 
     assert marsRover.moveRoverForward({'x':6, 'y': 2, 'direction' : 'E'}) == {'x':7, 'y': 2, 'direction' : 'E'}
     assert marsRover.moveRoverForward({'x':6, 'y': 2, 'direction' : 'W'}) == {'x':5, 'y': 2, 'direction' : 'W'} 
- 
 
 def test_rover_seriesOfMoves_newPosition():
-    #assert marsRover.marsRoverChallenge((5,5),{'x':1, 'y': 2, 'direction' : 'N'},"LMLMLMLMM"  ) == {'x':1, 'y': 3, 'direction' : 'N'}
-    #assert marsRover.marsRoverChallenge((5,5),{'x':3, 'y': 3, 'direction' : 'E'},"MMRMMRMRRM"  ) == {'x':5, 'y': 1, 'direction' : 'E'}
-    assert marsRover.marsRoverChallenge((5,5),[({'x':1, 'y': 2, 'direction' : 'N'},"LMLMLMLMM"), ({'x':3, 'y': 3, 'direction' : 'E'},"MMRMMRMRRM")]) == [{'x':1, 'y': 3, 'direction' : 'N'}, {'x':5, 'y': 1, 'direction' : 'E'}]
+    assert marsRover.marsRoverChallenge((5,5),[({'x':4, 'y': 3, 'direction' : 'W'},"RRMRM"),
+     ({'x':2, 'y': 2, 'direction' : 'S'},"LMMLM")]) == [{'x':5, 'y': 2, 'direction' : 'S'}, {'x':4, 'y': 3, 'direction' : 'N'}]
+    assert marsRover.marsRoverChallenge((5,5),[({'x':1, 'y': 2, 'direction' : 'N'},"LMLMLMLMM"),
+     ({'x':3, 'y': 3, 'direction' : 'E'},"MMRMMRMRRM")]) == [{'x':1, 'y': 3, 'direction' : 'N'}, {'x':5, 'y': 1, 'direction' : 'E'}]
+
+def test_rover_notOnPlateau_errorMessage():
+    assert marsRover.marsRoverChallenge((5,5),[({'x':4, 'y': 3, 'direction' : 'W'},"RRMRM"),
+     ({'x':4, 'y': 4, 'direction' : 'E'},"MMLM")]) == [{'x':5, 'y': 2, 'direction' : 'S'}, 'Mission Aborted - Rover is no longer on the plateau']
+
+def test_rover_collision_errorMessage():
+    assert marsRover.marsRoverChallenge((5,5),[({'x':4, 'y': 3, 'direction' : 'W'},"RRMRM"),
+     ({'x':5, 'y': 1, 'direction' : 'E'},"LMM")]) == [{'x':5, 'y': 2, 'direction' : 'S'}, 'Mission Aborted - Collision has occured']
+
+def test_rover_invalidMove_errorMessage():
+    assert marsRover.marsRoverChallenge((5,5),[({'x':4, 'y': 3, 'direction' : 'W'},"RRWMRM")]) == ['Mission Aborted - Invalid move']
