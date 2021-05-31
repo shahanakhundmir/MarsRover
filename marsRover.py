@@ -1,5 +1,4 @@
 def marsRoverChallenge(plateau, roverMissions ):
-    
     completedMissions = []
     error = 0
     for roverMission in roverMissions:

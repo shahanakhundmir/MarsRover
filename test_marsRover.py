@@ -42,4 +42,4 @@ def test_rover_collision_errorMessage():
      ({'x':5, 'y': 1, 'direction' : 'E'},"LMM")]) == [{'x':5, 'y': 2, 'direction' : 'S'}, 'Mission Aborted - Collision has occured']
 
 def test_rover_invalidMove_errorMessage():
-    assert marsRover.marsRoverChallenge((5,5),[({'x':4, 'y': 3, 'direction' : 'W'},"RRWMRM")]) == ['Mission Aborted - Invalid move']
+    assert marsRover.marsRoverChallenge((5,5),[({'x':4, 'y': 3, 'direction' : 'W'},"RRWRM"),]) == ['Mission Aborted - Invalid move']
