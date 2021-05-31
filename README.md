@@ -1,14 +1,32 @@
 ## Mars Rover Challenge :oncoming_automobile:
 
 ### Cases to check
-collision - if there is more than one rover then report error if there is a collision
-Before the rover starts its journey and after each move, check that the rover is still on the plateau
-If initial plateau coordinates are (0,0) thrown an error
-Check initital compass direction is N, S, E or W
-Check that move is L, R or M 
-Maximum number of rovers deployed at any one time is 3
-Report collision if moving rover has the same coordinates as any other rover
-Provide relevant error messages for:
-  collision
-  rover going beyound the plateau
+:star: Collision - if the current rover is at the same position that a previous rover mission ended with, then a collision has occured
+  Print a message about the collision and abort the mission
+
+:star: Before the rover starts its journey and after each move, check that the rover is still on the plateau
+  if not then print an error message and abort the mission
+
+:star: If initial plateau coordinates are (0,0) an error has occured and the mission cannot continue
+
+:star: Check initital compass direction is N, S, E or W
+
+:star: Check that move is L, R or M 
+
+
+### Testing
+:star: Tests have been carried out on isolated functions
+
+:star: Thorough testing of edge cases, including collision, valid inputs and the rover remaining on the plateau
+
+:star: Testing checks if missions are aborted and error messages returned
+
+:star: If more than one rover is on a mission, a list of outputs is returned
+
+:star: Output is a dictionary item for each rovers final position, with coordinates and compass direction
+
+:star: Error messages are string with Mission aborted and reason why. 
+
+
+### To run
 
