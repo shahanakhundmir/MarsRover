@@ -3,26 +3,19 @@ def marsRoverChallenge(plateau, roverMovements ):
     for roverMovement in roverMovements:
         rover = roverMovement[0]
         movements = roverMovement[1]
-    # refactor to list of rovers, 3
-    # get the plateau
-    #loop through the rovers
-    #store endpoint of each rover journey in list 
-    #with each rover move, check it hasn't collided with another rover
-
+    
         if isPlateauValid(plateau) and isRoverOnPlateau(plateau, rover) and isDirectionValid(rover):
             for move in movements:
                 if move == "R" or move == "L":
                     changeRoverDirection(rover, move)
                 elif move == "M":
                     moveRoverForward(rover)
-                    if isRoverOnPlateau(plateau, rover):
-                        continue
-                    else:
+                    if not isRoverOnPlateau(plateau, rover):
                       print("Rover is no longer on the plateau")
+                    if collisionHasOccured(arr, rover):
+                        print("collision has occured")
                 else:
-                 print("Error")
-
-        # check rover hasn't collided  --- report collision
+                    print("Invalid move")
         arr.append(rover)
     return arr
 
@@ -72,3 +65,9 @@ def moveRoverForward(rover):
     elif rover.get('direction') == 'W': 
         rover['x'] = rover.get('x') -1
     return rover
+
+
+def collisionHasOccured(completedRovers, rover):
+    for completedRover in completedRovers:
+        if completedRover.get('x') == rover.get('x') and completedRover.get('y') == rover.get('y'):
+            return True
