@@ -9,7 +9,7 @@
   
     🟣 Formatting the data for output in specified format
     
-⭐ Dividing area area of concern into functions, and writing a failing unit test for it. And then coding the solution for that function
+⭐ Dividing Areas of Concern into functions and writing a failing unit test for each function. Then coding the solution for that function
    
 ⭐ Building these functions into the main body of the challenge
  
@@ -18,11 +18,11 @@
 ## Mars Rover Challenge :oncoming_automobile:
 
 ### Cases to check ✔️
-:star: Collision - if the current rover is at the same position that a previous rover mission ended with, then a collision has occured
+:star: Collision - if the current rover is at the same position that a previous rover mission ended at, then a collision has occured
   Print a message about the collision and abort the mission
 
 :star: Before the rover starts its journey and after each move, check that the rover is still on the plateau
-  if not then print an error message and abort the mission
+  If not then print an error message and abort the mission
 
 :star: If initial plateau coordinates are (0,0) an error has occured and the mission cannot continue
 
@@ -49,6 +49,10 @@
 
 :star: Error messages are string with Mission aborted and reason why. 
 
+:star: The Rover Missions dictionary format output is converted to String as per the specification and printed to screen
+
+
+
 
 
 ## To Run 🏃‍♂️
@@ -62,9 +66,9 @@ git clone https://github.com/shahanakhundmir/MarsRover.git
 
 :star: Control + Shift + P - and select pytest as testing framework
 
-🧪 From Left sidebar the test symbol should appear  click on this 
+🧪 From Left sidebar the test symbol should appear, click on this to see all tests
 
-Run tests from this section - ✔️ means that tests are running
+Run tests from this section : ✔️ means that tests are running
 
 
 
