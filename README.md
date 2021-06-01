@@ -1,6 +1,23 @@
+## Strategy 👷‍♀️
+⭐ Approached task using TDD
+
+⭐ Separation of Concerns
+
+    🟣 Validation of inputs and movements
+  
+    🟣 Moving the Rover
+  
+    🟣 Formatting the data for output in specified format
+    
+⭐ Dividing area area of concern into functions, and writing a failing unit test for it. And then coding the solution for that function
+   
+⭐ Building these functions into the main body of the challenge
+ 
+
+
 ## Mars Rover Challenge :oncoming_automobile:
 
-### Cases to check
+### Cases to check ✔️
 :star: Collision - if the current rover is at the same position that a previous rover mission ended with, then a collision has occured
   Print a message about the collision and abort the mission
 
@@ -14,7 +31,12 @@
 :star: Check that move is L, R or M 
 
 
-### Testing
+
+## Written using Python 🐍
+
+
+
+## Testing 📑
 :star: Tests have been carried out on isolated functions
 
 :star: Thorough testing of edge cases, including collision, valid inputs and the rover remaining on the plateau
@@ -28,5 +50,10 @@
 :star: Error messages are string with Mission aborted and reason why. 
 
 
-### To run
+
+## To Run 🏃‍♂️
+💻 Download and Install Python
+Using VSCode
+GitHub - 
+
 
