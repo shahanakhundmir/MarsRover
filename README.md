@@ -52,8 +52,19 @@
 
 
 ## To Run 🏃‍♂️
-💻 Download and Install Python
-Using VSCode
-GitHub - 
+💻 Download and Install Python from https://www.python.org/downloads/
+
+📂 GitHub - create a folder on your local computer and from the command line run 
+
+git clone https://github.com/shahanakhundmir/MarsRover.git
+
+📁 Open the created folder in VS Code
+
+:star: Control + Shift + P - and select pytest as testing framework
+
+🧪 From Left sidebar the test symbol should appear  click on this 
+
+Run tests from this section - ✔️ means that tests are running
+
 
 
