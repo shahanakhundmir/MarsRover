@@ -1,6 +1,6 @@
 import marsRover
 
-def test_checkPlateau__size_isnotNull():
+def test_checkPlateau_size_isnotNull():
     assert marsRover.isPlateauValid((0,0)) == False
     assert marsRover.isPlateauValid((5,5)) == True
 
