@@ -1,4 +1,4 @@
-from validateMarsRover import collisionHasOccured, isPlateauValid, isRoverOnPlateau, isDirectionValid
+from validateMarsRover import collisionHasOccured, isPlateauValid, isRoverOnPlateau, isDirectionValid, checkCoordinatedAreValid
 from moveMarsRover import moveRoverForward, changeRoverDirection
 from formatMissionData import outputAsString
 
@@ -7,11 +7,10 @@ def marsRoverChallenge(plateau, roverMissions ):
     completedMissions = []
     error = 0
     for roverMission in roverMissions:
-        rover = roverMission[0]
+        rover = checkCoordinatedAreValid(roverMission[0])
         movements = roverMission[1]
         if isPlateauValid(plateau) and isRoverOnPlateau(plateau, rover) and isDirectionValid(rover):
             for move in movements:
-                print("GGGGGG")
                 if move == "R" or move == "L":
                     changeRoverDirection(rover, move)
                 elif move == "M":

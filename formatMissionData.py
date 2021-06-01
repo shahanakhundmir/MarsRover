@@ -4,5 +4,3 @@ def outputAsString(missionData):
             print(data)
         else:
             print(f"{data.get('x')} {data.get('y')} {data.get('direction')}")
-            
-    
